@@ -233,7 +233,7 @@ contract DeveryPresale is ERC20Token {
         PICOPSCertifierUpdated(address(picopsCertifier), _picopsCertifier);
         picopsCertifier = PICOPSCertifier(_picopsCertifier);
     }
-    function addressCanContribute(address _addr) public constant returns (bool) {
+    function addressCanContribute(address _addr) public view returns (bool) {
         return whitelist.whitelist(_addr) > 0 || picopsCertifier.certified(_addr);
     }
     function ethCap() public view returns (uint) {

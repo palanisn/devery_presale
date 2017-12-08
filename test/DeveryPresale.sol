@@ -186,7 +186,7 @@ contract ERC20Token is ERC20Interface, Owned, SafeMath {
 contract DeveryPresale is ERC20Token {
     address public wallet;
     // new Date(1512867600 * 1000).toString() => "Sun, 10 Dec 2017 12:00:00 AEDT"
-    uint public START_DATE = 1512442823; // Tue  5 Dec 2017 03:00:23 UTC
+    uint public START_DATE = 1512702309; // Fri  8 Dec 2017 03:05:09 UTC
     bool public closed;
     uint public ethMinContribution = 20 ether;
     uint public usdCap = 2000000;
@@ -233,7 +233,7 @@ contract DeveryPresale is ERC20Token {
         PICOPSCertifierUpdated(address(picopsCertifier), _picopsCertifier);
         picopsCertifier = PICOPSCertifier(_picopsCertifier);
     }
-    function addressCanContribute(address _addr) public constant returns (bool) {
+    function addressCanContribute(address _addr) public view returns (bool) {
         return whitelist.whitelist(_addr) > 0 || picopsCertifier.certified(_addr);
     }
     function ethCap() public view returns (uint) {
